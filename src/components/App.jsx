@@ -22,7 +22,9 @@ const initialContacts = [
 const savedContacts = JSON.parse(localStorage.getItem(LOCALE_STORAGE_KEY));
 
 export default function App() {
-  const [contacts, setContacts] = useState(savedContacts ?? initialContacts);
+  const [contacts, setContacts] = useState(
+    () => savedContacts ?? initialContacts
+  );
   const [filter, setFilter] = useState('');
 
   const getId = () => nanoid();
